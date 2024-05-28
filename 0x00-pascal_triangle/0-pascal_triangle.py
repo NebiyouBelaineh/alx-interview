@@ -3,7 +3,15 @@
 
 
 def pascal_triangle(n):
-    """Returns the pascal triangle representation of the nth row"""
+    """Returns the Pascal's triangle representation up to the nth row.
+
+    Args:
+        n (int): The number of rows of Pascal's triangle to generate.
+
+    Returns:
+        List[List[int]]: A list of lists, where each inner list represents
+        a row in Pascal's triangle.
+    """
     if n <= 0:
         # Returns an empty list if n is less than or equal to 0
         return []
