@@ -37,8 +37,9 @@ def count_stats() -> None:
             splited_input = input.split()
             f_size, s_code = splited_input[-1], splited_input[-2]
             file_size += int(f_size)
-            valid_stats_code = (s_code in status_code.keys()
+            valid_stats_code = ((s_code in status_code.keys()
                                 or str(s_code) in status_code.keys())
+                                and s_code.isdigit())
             if valid_stats_code:
                 status_code[splited_input[-2]] += 1
             else:
