@@ -18,6 +18,7 @@ status_code = {
 
 
 def print_stats(file_size, status_codes):
+    """Prints stats counted"""
     print(f'File size: {file_size}')
     for key, value in status_code.items():
         if value:
@@ -25,6 +26,7 @@ def print_stats(file_size, status_codes):
 
 
 def count_stats():
+    """Counts the stats and lines from stdin"""
     for line in sys.stdin:
         global line_number
         global file_size
