@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Modue to count status codes and file size every 10 line of input"""
 import sys
+import re
 
 file_size = 0
 line_number = 0
@@ -32,9 +33,20 @@ def count_stats() -> None:
             global line_number
             global status_code
 
+            pattern = re.compile(
+                r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - '
+                r'\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+)\] '
+                r'"GET /projects/260 HTTP/1.1" '
+                r'(\d{3}) '
+                r'(\d+)$'
+                )
+            if not pattern.match(line):
+                continue
             line_number += 1
             input = line.strip()
             splited_input = input.split()
+            if len(splited_input) < 5:
+                continue
             f_size, s_code = splited_input[-1], splited_input[-2]
             file_size += int(f_size)
             valid_stats_code = ((s_code in status_code.keys()
@@ -46,8 +58,8 @@ def count_stats() -> None:
                 continue
             if line_number % 10 == 0:
                 print_stats(file_size, status_code)
-    except Exception:
-        pass
+    except Exception as e:
+        print(e)
     finally:
         print_stats(file_size, status_code)
         sys.exit()
