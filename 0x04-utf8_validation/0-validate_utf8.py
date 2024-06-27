@@ -6,8 +6,6 @@ from typing import List
 def validUTF8(data: List[int]) -> bool:
     """Verfies if a data set contains valid utf-8 encoding"""
     num_bytes = 0  # number of remaining bytes
-    if len(data) == 0:
-        return False
 
     for byte in data:
         if num_bytes == 0:
