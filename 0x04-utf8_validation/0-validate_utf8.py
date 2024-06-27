@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Module contains method validUTF8 to verify valid utf-8 data sets"""
-from typing import List
 
 
-def validUTF8(data: List[int]) -> bool:
+def validUTF8(data):
     """Verfies if a data set contains valid utf-8 encoding"""
     num_bytes = 0  # number of remaining bytes
 
