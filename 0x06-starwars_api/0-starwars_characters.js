@@ -6,7 +6,7 @@ if (process.argv.length < 3) {
     return
 }
 const film = process.argv[2];
-const url = "https://swapi-api.alx-tools.com/api/films/" + film + "/?fomat=json";
+const url = "https://swapi-api.alx-tools.com/api/films/" + film;
 
 
 function requestPromise(url) {
