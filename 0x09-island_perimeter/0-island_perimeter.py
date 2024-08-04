@@ -7,7 +7,7 @@
 def island_perimeter(grid):
     """returns the perimeter of the island described in grid"""
     if len(grid) == 0:
-        return
+        return 0
 
     countPerimeter = 0
     # loop through each array
